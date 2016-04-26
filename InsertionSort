@@ -1,0 +1,25 @@
+def insertionsort(l):
+    for index in range(0,len(l)-1):
+        print "Processing iteration number",index+1,l
+        if(l[index]<l[index+1]):
+            continue
+        else:
+            #Find a position for index+1
+            refindex = index+1
+            currentindex = index
+            while(l[currentindex]>l[refindex]):
+                if currentindex == 0:
+                    break
+                currentindex=currentindex-1
+            print "currentindex",currentindex
+            print "refindex",refindex
+            if currentindex != 0:
+                currentindex = currentindex + 1
+            #Push elements to the right
+            refvalue = l[refindex]
+            while(refindex>=currentindex):
+                l[refindex]=l[refindex-1]
+                refindex = refindex - 1
+            l[currentindex] = refvalue
+##            l[currentindex],l[refindex]=l[refindex],l[currentindex]
+    return l
