@@ -1,0 +1,8 @@
+
+def sumofdigits(n):
+    d = n%10
+    n = n/10
+    if n == 0:
+        return n
+    else:
+        return d + sumofdigits(n)
