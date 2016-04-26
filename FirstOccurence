@@ -1,0 +1,18 @@
+def firstoccurence(l,n):
+    low = 0
+    high= len(l)-1
+    while(low<=high):
+        mid = (low+high)/2
+        print "low",low,"high",high
+        if(n==l[mid]):
+            if(mid==0):
+                return mid
+            elif(l[mid-1]<n):
+                return mid
+            else:
+                high = mid - 1
+        elif(n<l[mid]):
+            high = mid-1
+        else:
+            low = mid+1
+    return -1
