@@ -1,0 +1,47 @@
+class linkedlist:
+
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.trav  = None
+    
+    class node:
+        def __init__(self,value):
+            self.data = value
+            self.next = None
+
+    def append(self,data):
+        if self.head == None:
+            self.head = self.node(data)
+        else:
+            self.trav = self.head
+            while(self.trav):
+                previous = self.trav
+                self.trav = self.trav.next
+            previous.next = self.node(data)
+
+    def printlinkedlist(self):
+        self.trav = self.head
+        while(self.trav):
+            print self.trav.data
+            self.trav = self.trav.next
+
+    def printreverse(self,trav):       
+        if trav==None:
+            return
+        else:
+            self.printreverse(trav.next)
+            print trav.data
+
+
+
+
+
+
+
+
+
+
+
+
+    
