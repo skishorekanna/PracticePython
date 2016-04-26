@@ -1,0 +1,24 @@
+       
+def largestsubarray(l):
+    maxsum = 0
+    sumtillnow = 0
+    for index,each in enumerate(l):
+        print each,"each",sumtillnow
+        sumtillnow += each
+        if (sumtillnow > maxsum):
+            maxsum = sumtillnow
+        if(sumtillnow<0):
+            sumtillnow =  0
+    return maxsum
+
+def larg_cont_sum(l):
+    if len(l) == 0 :
+        return 0
+    maxsum = l[0]
+    cursum = l[0]
+    for each in l[1:]:
+        cursum = max(cursum+each,each)
+        maxsum  = max(cursum,maxsum)
+    return maxsum
+
+
