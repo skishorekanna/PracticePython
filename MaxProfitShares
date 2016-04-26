@@ -1,0 +1,14 @@
+def maxprofit(l):
+    if len(l) <= 1 :
+        return 0
+    cp = sp = mcp = msp = l[0]
+    for i in l[1:]:
+        if i<=sp and i>=cp:
+            continue
+        elif i>sp:
+            sp = i
+            msp = i
+        elif i<cp:
+            cp = sp = i
+            mcp = msp = i
+    return (mcp,msp,msp-mcp)
