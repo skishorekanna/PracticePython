@@ -1,0 +1,33 @@
+def merging(list1,list2):
+    resultlist = []
+    leftend = 0
+    rightend = len(list1)
+    leftend2 = 0
+    rightend2 = len(list2)
+    while(leftend<rightend and leftend2<rightend2):
+        if(list1[leftend]<list2[leftend2]):
+            resultlist.append(list1[leftend])
+            leftend=leftend+1
+        else:
+            resultlist.append(list2[leftend2])
+            leftend2 = leftend2 + 1
+    if(leftend==rightend):
+        for each in range(leftend2,rightend2):
+            resultlist.append(list2[each])
+    else:
+        for each in range(leftend,rightend):
+            resultlist.append(list1[each])
+    return resultlist
+         
+
+def mergesort(l):
+    #Base Case
+    if len(l) == 1:
+        return l
+    mid = len(l)/2
+    print("splitted lists",l[0:mid],l[mid:])
+    lm = mergesort(l[0:mid])
+    rm = mergesort(l[mid:])
+    m = merging(lm,rm)
+    print "merged",m
+    return m
