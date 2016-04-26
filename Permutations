@@ -1,0 +1,18 @@
+def constructlist(s,i):
+    output =[]
+    for each in i:
+        output.append(s+each)
+    return output
+
+
+def permutations(s):
+    if len(s)<=1:
+        return s
+    separated = ""
+    l = []
+    for index, each in enumerate(s):
+        separated = s[0:index]+s[index+1:]
+        result = constructlist(s[index],permutations(separated))
+        l.extend(result)
+    return l
+    
