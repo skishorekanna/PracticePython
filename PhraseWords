@@ -1,0 +1,18 @@
+def wordsplit(phrase, words):
+    out = []
+    print phrase,"phrase on each iteration"
+    #Base Case
+    if phrase == "":
+        return True
+    for each in words:
+        if each in phrase:
+            out.append(each)
+            startpos = phrase.find(each)
+            endpos   = startpos + len(each)- 1
+            print "startpos,endpos",startpos, endpos
+            phrase = phrase[:startpos]+phrase[endpos+1:]
+            print phrase,"phrase modified"
+            return True & wordsplit(phrase, words)
+    else:
+        print "There is a word which is not present"
+        return False
