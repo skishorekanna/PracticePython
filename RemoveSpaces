@@ -1,0 +1,23 @@
+def removespaces(s):
+    """
+    This code is to remove the spaces and insert them at the beginning
+    """
+    space = ' '
+    chars = ""
+    spaces = ""
+    for index,each in enumerate(s):
+        if each == space:
+            spaces += each
+        else:
+            chars += each
+    print spaces+chars
+
+def inplaceremovespace(s):
+    l = list(s)
+    for index,each in enumerate(l):
+        if index == len(l)-1:
+            break
+        if each == " ":
+            print "encountered"
+            l[index],l[index+1] = l[index+1],l[index]
+    print l    
