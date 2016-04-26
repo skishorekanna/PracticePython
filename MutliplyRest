@@ -1,0 +1,11 @@
+def multiplyrest(l):
+    resultlist = []
+    def toint(each):
+        return str(each)
+    from copy import copy
+    for index,each in enumerate(l):
+        templist = copy(l)
+        templist.remove(each)
+        resultlist.append(eval("*".join(map(toint,templist))))
+    print resultlist
+
