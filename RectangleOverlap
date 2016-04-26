@@ -1,0 +1,25 @@
+def overlapornot(x1,y1,w1,h1,x2,y2,w2,h2):
+    left = up = None
+    condition1 = condition2 = True
+    if(x1<x2):
+        leftrectangle = (x1,y1,w1,h1)
+        rightrectangle = (x2,y2,w2,h2)
+    else:
+        leftrectangle = (x2,y2,w2,h2)
+        rightrectangle = (x1,y1,w1,h1)   
+    if(y1<y2):
+        uprectangle = leftrectangle
+        downrectangle = rightrectangle
+    else:
+        downrectangle = leftrectangle
+        uprectangle = rightrectangle
+    if (rightrectangle[0]-(leftrectangle[0]+leftrectangle[2]))>0:
+        condition1 = False
+    if (downrectangle[1])-(uprectangle[1]+uprectangle[3])>0:
+        condition2 = False
+    print leftrectangle,rightrectangle,uprectangle,downrectangle
+    print condition1, condition2
+    return (condition1 or condition2)
+
+
+
