@@ -1,0 +1,24 @@
+def bsearch(target,array,start,end):
+    while(start<=end):
+       mid = (start+end)/2
+       if(array[mid]==target):
+           return True
+       elif(array[mid]<target):
+            start =  mid + 1
+       else:
+           end = mid - 1
+    return False
+
+
+def triplets(ul,x):
+    l = sorted(ul)
+    print "list",l
+    start = 0
+    end = len(l)-1
+    array = l
+    while(start+1<end):
+        findme = x - l[start] - l[end]
+        if(bsearch(findme,array,start+1,end)):  
+            print "Triplets",array[start],array[end],findme
+        #Incrementing the left index
+        start = start + 1
