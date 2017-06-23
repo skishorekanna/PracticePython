@@ -1,3 +1,7 @@
+"""
+Some doc string
+"""
+
 def compressstring(s):
     if (len(s)<1):
         return s
