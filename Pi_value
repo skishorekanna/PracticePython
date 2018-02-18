@@ -1,0 +1,41 @@
+#Determine the value of PI based on the number of digits
+
+
+"""
+input: digit - integer
+output : pi value as a whole number
+"""
+def pi_value (digit):
+    numerator = 22
+    denominator = 7
+    result = []
+    while(numerator > 0):
+        digit -= 1
+        remainder = numerator % denominator
+        quotient = numerator // denominator
+        #print numerator,"num"
+        #print denominator,"den"
+        #print quotient,"quotient"
+        #print remainder,"rem"
+        numerator = remainder
+        if numerator < denominator:
+            numerator = numerator * 10
+
+        result.append(quotient)
+        #print result, "result"
+        if digit == 0:
+            break
+    print result
+    multiplicant = 1
+    answer = 0
+    first = True
+    for each in result:
+        if first:
+            first = False
+            answer = each
+            continue
+        answer = (answer * 10) + each
+
+    return answer
+
+print pi_value(8)
