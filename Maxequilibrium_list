@@ -1,0 +1,33 @@
+"""
+Maximum equlibrium sum in an array
+Given an array arr[]. Find maximum value of prefix sum which is also suffix sum for index i in arr[].
+
+"""
+
+l = [-2, 5, 3, 1, 2, 6, -4, 2]
+#[-1, 2, 3, 0, 3, 2, -1]
+
+prefix_sum = []
+suffix_sum =  []
+sum = 0
+for each in l:
+   sum = sum + each
+   prefix_sum.append(sum)
+print prefix_sum
+sum = 0
+for each in l[::-1]:
+   sum = sum + each
+   suffix_sum.append(sum)
+print suffix_sum
+
+len_l = len(l)
+left = 0
+right = len_l - 1
+result = 0
+while(len_l > 0):
+   if prefix_sum[left]==suffix_sum[right]:
+       result = max(result, prefix_sum[left])
+   left = left + 1
+   right = right - 1
+   len_l = len_l - 1
+print result
